@@ -19,8 +19,8 @@ from cryptography.hazmat.primitives.serialization import load_pem_private_key
 # global variable
 logging.basicConfig(filename='blocked_domains.log', level=logging.INFO)
 
-CA_CERT_PATH = "/Users/stan/StSecretRootCA.pem"
-CA_KEY_PATH = "/Users/stan/StSecretRootCA.key"
+CA_CERT_PATH = os.getenv("CA_CERT_PATH", "certs/StSecretRootCA.pem")
+CA_KEY_PATH = os.getenv("CA_KEY_PATH", "certs/StSecretRootCA.key")
 
 cert_cache = {}  # global certificate cache
 
