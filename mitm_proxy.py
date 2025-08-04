@@ -129,7 +129,8 @@ class ProxyRequestHandler(socketserver.BaseRequestHandler):
         print("Block Domain function")
         print(f"Proxy Server: Access Denied to {destination_host}")
 
-        response_body = "<html><body><h1>403 Forbidden</h1><p>Access to this site is denied.</p></body></html>"
+        with open("html/blocked_page.html", "r", encoding="utf-8") as f:
+            response_body = f.read()
         response = (
             "HTTP/1.1 403 Forbidden\r\n"
             f"Content-Length: {len(response_body)}\r\n"
@@ -254,7 +255,8 @@ class ProxyRequestHandler(socketserver.BaseRequestHandler):
                 # Check against block list and send message using tls
                 if host in BLOCKLIST_DOMAIN:
                     print(f"BLOCKING HTTPS {host} ")
-                    response_body = "<html><body><h1>403 Forbidden</h1><p>Access to this site is denied.</p></body></html>"
+                    with open("html/blocked_page.html", "r", encoding="utf-8") as f:
+                        response_body = f.read()
                     response = (
                         "HTTP/1.1 403 Forbidden\r\n"
                         f"Content-Length: {len(response_body)}\r\n"
