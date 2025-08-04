@@ -12,9 +12,9 @@ so yeah, use it to spy on yourself.
 
 - intercepts HTTP and HTTPS traffic  
 - dynamically generates TLS certs signed by your own fake CA  
-- blocks any domains you choose (hardcoded for now)  
-- sends “403 forbidden” html back if it blocks smth  
-- logs all blocked attempts with IP + timestamp  
+- blocks any domains you choose (hardcoded for now — editable in code)  
+- sends a “403 Forbidden” HTML page if it blocks something  
+- logs all blocked attempts with IP + timestamp → see 'blocked_domains.log'  
 - tunnels the rest of traffic just like a normal proxy
 
 ---
@@ -48,6 +48,8 @@ for browser (e.g. firefox):
 - go to network settings
 - set manual proxy: `HTTP proxy` = `127.0.0.1`, port = `8080`
 - tick the box to also use this proxy for HTTPS
+
+> to add or remove blocked domains, check the `BLOCKLIST_DOMAIN` set inside `mitm_proxy.py` (line 153)
 
 ---
 
@@ -88,3 +90,5 @@ BLOCKING HTTPS www.facebook.com
 Host is allowed: www.google.com 
 Here in tunnel - Server socket received data)
 ```
+
+---

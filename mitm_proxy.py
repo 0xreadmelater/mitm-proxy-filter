@@ -157,7 +157,8 @@ class ProxyRequestHandler(socketserver.BaseRequestHandler):
             "malware.org",
             "mitm.it",
             "facebook.com",
-            "www.facebook.com"
+            "www.facebook.com",
+            "x.com"
         }
         # self.request is the client socket
 
