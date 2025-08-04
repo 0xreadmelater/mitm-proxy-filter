@@ -58,10 +58,10 @@ enjoy sniffing your own traffic
 ### sample screenshots
 
 #### intercepted request (google.com)
-![example1](media/example1.png)
+![example2](media/example2.png)
 
 #### terminal logs when facebook.com is blocked
-![example2](media/example2.png)
+![example1](media/example1.png)
 
 #### browser showing 403 forbidden for facebook.com
 ![example3](media/example3.png)
